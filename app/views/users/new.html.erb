@@ -1,0 +1,22 @@
+<%= form_for @user do |u| %>
+
+<% flash.each do |key,value| %>
+  <div class="<%= key %>"><%= value%></div>
+  <%end%>
+
+
+
+  <%= u.label :email %>
+  <%= u.email_field :email %>
+
+
+  <%= u.label :password %>
+  <%= u.password_field :password %>
+
+
+  <%= u.label :password_confirmation, "Confirmation" %>
+  <%= u.password_field :password_confirmation %>
+
+  <%= u.submit "Signup" %>
+
+  <%end%>
