@@ -7,16 +7,24 @@
 
 
   <%= u.label :email %>
+  <br>
   <%= u.email_field :email %>
 
+<br>
 
   <%= u.label :password %>
+  <br>
   <%= u.password_field :password %>
 
+<br>
 
   <%= u.label :password_confirmation, "Confirmation" %>
+  <br>
   <%= u.password_field :password_confirmation %>
 
-  <%= u.submit "Signup" %>
+<br>
+<br>
+
+  <%= u.submit "Signup", "class" => "btn btn-success btn"  %>
 
   <%end%>

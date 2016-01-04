@@ -1,14 +1,36 @@
-<h1> Home Page </h1>
+<div class="index">
+<h1>Welcome to JamSessions!</h1>
+<br>
+<p>Find a jam mate near you!</p>
+<br>
 
 <% flash.each do |key,value| %>
   <div class="<%= key %>" > <%= value %> </div>
 <% end %>
 
-<%= link_to "Register", new_user_path %>
 
-<% if current_user %>
-  <%= link_to "Logout", destroy_session_path %>
+<% if @current_user %>
+
+  <%= link_to destroy_session_path, :class => "btn btn-danger btn-xs" do %>
+  <i class="glyphicon glyphicon-volume-off"> Logout</i>
+  <% end %>
+
+
 <% else %>
-  <%= link_to "Login", new_session_path %>
+
+  <%= link_to new_session_path, :class => "btn btn-success btn-xs" do %>
+  <i class="glyphicon glyphicon-headphones"> Login</i>
+  <% end %>
+  <br>
+  <br>
+
+
+<%= link_to new_user_path, :class => "btn btn-info btn-xs" do %>
+  <i class="glyphicon glyphicon-music"> Register</i>
+  <% end %>
 
 <% end %>
+
+<br>
+<img src="http://www.aroundtownent.com/images/band_vector.png">
+</div>

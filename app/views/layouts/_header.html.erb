@@ -1,0 +1,7 @@
+<%= tabs_tag do |tab| %>
+<div id="header">
+  <%= tab.profile             'Profile', user_path %><br>
+  <%= tab.jammate   'Search Jammates', search_path %>
+  <%= tab.logout    'Logout', destroy_session_path %>
+<% end %>
+</div>

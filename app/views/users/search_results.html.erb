@@ -1,0 +1,14 @@
+<h1>Search Results</h1>
+
+<!-- # <%= render partial: 'users/user',
+#       collection: @found_users,
+#       locals: { show_admin_links: false } %>
+ -->
+
+<% @users.each do |user| %>
+  <div class="users">
+    <h1><%= link_to user.talent, user %></h1>
+    <p><%= user.influences %></p>
+    <p><%= user.location %></p>
+  </div>
+<% end %>

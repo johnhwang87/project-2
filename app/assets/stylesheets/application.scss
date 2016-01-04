@@ -1,0 +1,39 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.index {
+  font-family: Courier;
+  text-align: center;
+}
+h1 {
+  color: red;
+}
+a {
+  width: 100px;
+}
+.success {
+    background-color: darkseagreen;
+
+}
+
+.error {
+    background-color: rosybrown;
+}
+#login {
+  text-align: center;
+}
+
+#header {
+  font-size: 15px;
+  position: relative;
+}
+
+li {
+  display: inline-block;
+}
+
+.pic img {
+  height: 55px;
+  width: 55px;
+}
+
