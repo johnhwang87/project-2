@@ -33,7 +33,19 @@
         </div>
 
         <div class="tab-pane" id="tab2">
-          CONTENT 2 WHY ISNT IT SHOWING
+          <%= form_for @jam, url: create_jam_path do |f| %>
+
+          <%= f.label :location  %>
+          <%= f.text_field :location  %>
+
+          <%= f.label :time  %>
+          <%= f.text_field :time  %>
+
+          <%= f.submit "Create JamSession", "class" => "btn btn-info btn" %>
+
+          <%end%>
+
+
         </div>
 
         <div class="tab-pane" id="tab3">

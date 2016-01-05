@@ -5,17 +5,25 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: :new_user
   get 'users/:id' => 'users#show', as: :user
   get 'users/sort' => 'users#sort'
-
   get 'users/:id/edit' => 'users#edit', as: :edit_user
-
   patch 'users/:id' => 'users#update'
-
   post '/' => 'users#create'
+
+  get 'jams/all' => 'jams#index', as: :jams
+  get 'jams/new' => 'jams#new', as: :new_jam
+  post 'jams/new' => 'jams#create', as: :create_jam
+
+  get 'jams/:id' => 'jams#show', as: :jam
+  get 'jams/:id/edit' => 'jams#edit', as: :edit_jam
+  patch 'jams/:id' => 'jams#update'
+
+
 
   get 'search' => 'users#search', as: 'search'
 
   # get 'search_results' => 'users#search_results', as: 'search_results'
   # get 'sessions/users/:id' => 'sessions#show', as: :show_session
+  # get 'targets/' => 'targets#index', as: :targets
 
   get 'sessions/new' => 'sessions#new', as: :new_session
 
@@ -23,6 +31,6 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
 
-  get 'targets/' => 'targets#index', as: :targets
+
 
 end
