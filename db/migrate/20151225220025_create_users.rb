@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.integer :age
       t.string :talent
-      t.string :skill
+      t.string :experience
       t.string :influences
       t.string :location
       t.string :email

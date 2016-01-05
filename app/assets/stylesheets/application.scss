@@ -33,7 +33,13 @@ li {
 }
 
 .pic img {
-  height: 55px;
-  width: 55px;
+  height: 80px;
+  width: 80px;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
 }
 
+#table {
+  width: 700px;
+}
