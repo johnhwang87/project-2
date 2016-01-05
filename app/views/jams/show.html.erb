@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Session</h1>
+
+            <%= form_for @jam do |f| %>
+            <img style="height: 200px;" src="<%= @jam.user.image %>">
+            <p><%= f.label :seeking %><br><%= @jam.seeking %></p>
+            <p><%= f.label :description %><br><%= @jam.description %></p>
+            <p><%= f.label :location %><br><%= @jam.location %></p>
+            <p><%= f.label :date %><br><%= @jam.date %></p>
+            <p><%= f.label :time %><br><%= @jam.time %></p>
+
+
+
+    <button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button>
+
+    <button type="button" class="btn btn-info btn-xs"><%= link_to "Edit Session", edit_jam_path %></button>
+
+    <button type="button" class="btn btn-danger btn-xs"><%= link_to "Erase Session", jam_path, method: :delete %></button>
+
+    <% end %>
+ </div>
+</div>

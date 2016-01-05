@@ -1,0 +1,48 @@
+<h1>Search</h1>
+
+
+
+<br>
+
+
+<div class="container">
+
+
+<%= form_tag('#', method: 'get') do %>
+  Search Sessions by
+  <%= select_tag "search", options_for_select(["seeking", "location", "time", "date"]) %>
+  <br><br> <%=text_field_tag :query %>
+  <%= submit_tag "Search", "class" => "btn btn-success btn-xs"%>
+<% end %>
+
+
+
+  <h3>Potential Sessions</h3>
+  <div id="myTable">
+  <div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th><%= link_to " ", users_sort_path(sort_by: "name") %></th>
+      <th><%= link_to "Seeking", jams_sort_path(sort_by: "seeking") %></th>
+      <th><%= link_to "Description", jams_sort_path(sort_by: "description") %></th>
+      <th><%= link_to "Location", jams_sort_path(sort_by: "location") %></th>
+      <th><%= link_to "Date", jams_sort_path(sort_by: "date") %></th>
+      <th><%= link_to "Time", jams_sort_path(sort_by: "time") %></th>
+
+    </tr>
+    <% @jams.each do |jam| %>
+      <tr>
+      <td>
+      <%= link_to image_tag(jam.user.image), jam_path(jam), class: "pic" %>
+      </td>
+        <td><%= jam.seeking %></td>
+        <td><%= jam.description %></td>
+        <td><%= jam.location %></td>
+        <td><%= jam.date %></td>
+        <td><%= jam.time %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+</div>

@@ -3,6 +3,12 @@ class UsersController < ApplicationController
     def index
     end
 
+    def show
+      @user = User.find(params[:id])
+      @jam = Jam.new
+      @jams = @user.jams
+    end
+
     def search
     if params[:query]
         search_by = params[:search].to_sym
@@ -20,12 +26,16 @@ class UsersController < ApplicationController
   end
     end
 
-
-
-    def show
-      @user = User.find(params[:id])
-      @jam = Jam.new
+    def sort
+      if @@descending
+        @users = user.order(params[:sort_by] + 'DESC')
+      else
+        @users =user.order(params[:sort_by])
+      end
+      @@descending = !@@descending
+      render :index
     end
+
 
 
     def create
@@ -67,7 +77,9 @@ class UsersController < ApplicationController
     render :index
   end
 
-
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
 
     private
     def user_params

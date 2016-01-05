@@ -1,1 +1,45 @@
-<div>Create somethin</div>
+<h1>Create A Session</h1>
+
+
+          <%= form_for @jam, url: create_jam_path do |f| %>
+          <form>
+
+
+           <fieldset class="form-group">
+              <%= f.label :seeking  %> <br>
+              <%= f.text_field :seeking, "placeholder" => "i.e. Drums, Bass Guitar, Vocalist, etc.", :size => 60  %>
+           </fieldset>
+
+
+           <fieldset class="form-group">
+              <%= f.label :description  %> <br>
+              <%= f.text_field :description, "placeholder" => "Rundown of your JamSession", :size => "60x60"  %>
+           </fieldset>
+
+
+           <fieldset class="form-group">
+              <%= f.label :location  %> <br>
+              <%= f.text_field :location, "placeholder" => "City", :size => 60  %>
+           </fieldset>
+
+
+           <fieldset class="form-group">
+              <%= f.label :date %> <br>
+              <%= f.text_field :date, "placeholder" => "Date of Session", :size => 60  %>
+           </fieldset>
+
+
+           <fieldset class="form-group">
+              <%= f.label :time %> <br>
+              <%= f.text_field :time, "placeholder" => "Time of Session", :size => 60  %>
+           </fieldset>
+
+           <!-- ask michelle on hidden user ids... not working,,, -->
+
+           <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+              <%= f.submit "Create JamSession", "class" => "btn btn-info btn" %>
+
+              <%end%>
+          </form>

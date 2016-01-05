@@ -2,7 +2,7 @@ class JamsController < ApplicationController
 
 
   def index
-    @jam = Jam.all
+    @jams = Jam.all
   end
 
   def new
@@ -12,15 +12,44 @@ class JamsController < ApplicationController
   def create
     if Jam.new(jam_params).save
       flash[:success] = 'Jam Session created!'
-      redirect_to users_path
+      redirect_to user_path(current_user.id)
     else
       flash[:error] = 'Jam Session creation failure!'
       redirect_to new_jam_path
     end
   end
 
+
+  def search
+    if params[:query]
+        search_by = params[:search].to_sym
+        query = params[:query]
+        jam_list = Jam.all
+        @jams = []
+        jam_list.each do |user|
+          if jam[search_by].downcase.include? params[:query].downcase
+                @jams << jam
+                end
+            end
+            return @jams
+        else
+        @jams = Jam.all
+      end
+    end
+
+    def sort
+      if @@descending
+        @jams = jam.order(params[:sort_by] + 'DESC')
+      else
+        @jams =jam.order(params[:sort_by])
+      end
+      @@descending = !@@descending
+      render :index
+    end
+
   def show
     @jam = Jam.find(params[:id])
+    @image = @jam.user
   end
 
   def edit
@@ -31,14 +60,22 @@ class JamsController < ApplicationController
     @jam = Jam.find(params[:id])
 
     if @jam.update_attributes(jam_params)
-      redirect_to user_path(@user)
+      redirect_to jam_path
     else
       render :edit
     end
   end
 
 
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
 
+  def destroy
+    @jam = Jam.find(params[:id])
+    @jam.destroy
+    redirect_to user_path(current_user.id)
+  end
 
 
 
@@ -47,6 +84,6 @@ class JamsController < ApplicationController
 
   private
   def jam_params
-    params.require(:jam).permit(:location, :time)
+    params.require(:jam).permit(:description, :date, :seeking, :location, :time).merge(:user_id => current_user.id)
   end
 end

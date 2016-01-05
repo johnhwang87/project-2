@@ -9,9 +9,9 @@
 
 <ul class="nav nav-tabs">
     <li><a href="#tab1" data-toggle="tab">Profile</a></li>
-    <li><a href="#tab2" data-toggle="tab">Messages</a></li>
-    <li><a href="#tab3" data-toggle="tab">Jam Sessions</a></li>
-    <li><a href="#ddd" data-toggle="tab">Search</a></li>
+    <li><a href="#tab2" data-toggle="tab">Sessions</a></li>
+    <li><a href="#tab3" data-toggle="tab">Search Sessions</a></li>
+    <li><a href="#tab4" data-toggle="tab">Search Members</a></li>
 </ul>
 
     <div class="tab-content">
@@ -33,27 +33,48 @@
         </div>
 
         <div class="tab-pane" id="tab2">
-          <%= form_for @jam, url: create_jam_path do |f| %>
+        <br>
 
-          <%= f.label :location  %>
-          <%= f.text_field :location  %>
+        <!-- show user created sessions, and participating sessions, and add edit here -->
+            <h3>Potential Sessions</h3>
+              <div id="sessionTable">
+              <div class="table-responsive">
+              <table class="table table-hover">
+                <tr>
+                  <th><%= link_to " ", users_sort_path(sort_by: "name") %></th>
+                  <th><%= link_to "Seeking", jams_sort_path(sort_by: "seeking") %></th>
+                  <th><%= link_to "Location", jams_sort_path(sort_by: "location") %></th>
+                  <th><%= link_to "Date", jams_sort_path(sort_by: "date") %></th>
+                  <th><%= link_to "Time", jams_sort_path(sort_by: "time") %></th>
+                </tr>
+                <% @jams.each do |jam| %>
+                <tr>
+                  <td>
+                    <%= link_to image_tag(@user.image), jam_path, class: "pic" %>
+                  </td>
+                  <td><%= jam.seeking %></td>
+                  <td><%= jam.location %></td>
+                  <td><%= jam.date %></td>
+                  <td><%= jam.time %></td>
+                </tr>
+                <%end%>
+              </table>
+            </div>
+          </div>
 
-          <%= f.label :time  %>
-          <%= f.text_field :time  %>
 
-          <%= f.submit "Create JamSession", "class" => "btn btn-info btn" %>
-
-          <%end%>
-
+         <%= link_to new_jam_path, class: "createSession" do %>
+         <i class="glyphicon glyphicon-music"> Create New Session</i>
+         <% end %>
 
         </div>
 
         <div class="tab-pane" id="tab3">
-          CONTENT 3
+        <h3><%= link_to 'Search for Sessions', jam_search_path %></h3>
         </div>
 
         <div class="tab-pane" id="tab4">
-          CONTENT 4
+          <h3><%= link_to 'Search for Jammates', search_path %></h3>
         </div>
 
     </div>
@@ -64,7 +85,6 @@
 
 
 </div>
-<h3 id="ddd"><%= link_to 'Search for Jammates', search_path %></h3>
 
 <br>
 

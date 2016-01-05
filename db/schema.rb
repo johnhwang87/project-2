@@ -17,11 +17,14 @@ ActiveRecord::Schema.define(version: 20151225220025) do
   enable_extension "plpgsql"
 
   create_table "jams", force: :cascade do |t|
+    t.text     "description"
     t.string   "location"
     t.string   "time"
+    t.string   "date"
+    t.string   "seeking"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
