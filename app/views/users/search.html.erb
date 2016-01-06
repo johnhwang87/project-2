@@ -8,7 +8,7 @@
 <div class="container">
 
 
-<%= form_tag('search_results', method: 'get') do %>
+<%= form_tag('search', method: 'get') do %>
   Search Jammates by
   <%= select_tag "search", options_for_select(["talent", "influences", "location"]) %>
   <br><br> <%=text_field_tag :query %>
@@ -22,7 +22,7 @@
   <div class="table-responsive">
   <table class="table table-hover">
     <tr>
-      <th><%= link_to " ", users_sort_path(sort_by: "name") %></th>
+      <th></th>
       <th><%= link_to "Talent", users_sort_path(sort_by: "talent") %></th>
       <th><%= link_to "Influences", users_sort_path(sort_by: "influences") %></th>
       <th><%= link_to "Location", users_sort_path(sort_by: "location") %></th>

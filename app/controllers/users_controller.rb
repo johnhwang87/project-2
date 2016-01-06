@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+@@descending = false
+
     def index
     end
 
@@ -8,6 +10,16 @@ class UsersController < ApplicationController
       @jam = Jam.new
       @jams = @user.jams
     end
+
+  def sort
+    if @@descending
+      @users = User.order(params[:sort_by] + ' DESC')
+    else
+      @users = User.order(params[:sort_by])
+    end
+    @@descending = !@@descending
+    render :search
+  end
 
     def search
     if params[:query]
@@ -26,15 +38,6 @@ class UsersController < ApplicationController
   end
     end
 
-    def sort
-      if @@descending
-        @users = user.order(params[:sort_by] + 'DESC')
-      else
-        @users =user.order(params[:sort_by])
-      end
-      @@descending = !@@descending
-      render :index
-    end
 
 
 
@@ -66,16 +69,6 @@ class UsersController < ApplicationController
     def new
       @user = User.new
     end
-
-  def sort
-    if @@descending
-      @users = User.order(params[:sort_by] + ' DESC')
-    else
-    @users = User.order(params[:sort_by])
-  end
-    @@descending = !@@descending
-    render :index
-  end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])

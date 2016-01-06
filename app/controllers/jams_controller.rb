@@ -1,6 +1,6 @@
 class JamsController < ApplicationController
 
-
+@@descending = false
 
   def index
     @jams = Jam.all
@@ -21,6 +21,16 @@ class JamsController < ApplicationController
   end
 
 
+    def sort
+      if @@descending
+        @jams = Jam.order(params[:sort_by] + ' DESC')
+      else
+        @jams = Jam.order(params[:sort_by])
+      end
+      @@descending = !@@descending
+      render :search
+    end
+
   def search
     if params[:query]
         search_by = params[:search].to_sym
@@ -36,16 +46,6 @@ class JamsController < ApplicationController
         else
         @jams = Jam.all
       end
-    end
-
-    def sort
-      if @@descending
-        @jams = jam.order(params[:sort_by] + 'DESC')
-      else
-        @jams =jam.order(params[:sort_by])
-      end
-      @@descending = !@@descending
-      render :index
     end
 
   def show

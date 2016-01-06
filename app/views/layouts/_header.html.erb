@@ -1,7 +1,10 @@
+
 <%= tabs_tag do |tab| %>
 <div id="header">
-  <%= tab.profile             'Profile', user_path %><br>
+  <img src="http://inspirationfeed.com/wp-content/uploads/2011/07/62ee87d32fd10dcd005560040ca6086f1.png">
+  <%= tab.profile             'Profile', user_path %>
   <%= tab.jammate   'Search Jammates', search_path %>
   <%= tab.logout    'Logout', destroy_session_path %>
 <% end %>
-</div>
+
+
