@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
 
-
+  namespace :api do
+    resources :jams, only: [:index, :show]
+  end
 
 end
