@@ -36,6 +36,9 @@ class UsersController < ApplicationController
     else
     @users = User.all
   end
+    # @friendships = Friendship.all
+    # @user_id = Friendship.all.user_id
+    # @friend_id = Friendship.all.friend_id
     end
 
 

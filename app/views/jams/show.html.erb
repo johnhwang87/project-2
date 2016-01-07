@@ -13,12 +13,14 @@
 
     <button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button>
 
-    <button type="button" class="btn btn-info btn-xs"><%= link_to "Edit Session", edit_jam_path %></button>
+    <% if @jam.user == current_user %>
 
-    <button type="button" class="btn btn-danger btn-xs"><%= link_to "Erase Session", jam_path, method: :delete %></button>
+    <%= link_to "Edit Session", edit_jam_path %>
+
+    <%= link_to "Erase Session", jam_path, method: :delete %>
 
     <% end %>
-
+    <% end %>
 
 
 
@@ -28,7 +30,7 @@
     <table class="table comments">
 
         <% @comments.each do |comment| %>
-         <% @comments.sort_by{|e| -e[:time_ago]} %>
+
         <tr>
             <td> <%= link_to image_tag(comment.user.image), user_path(comment.user), class: "pic" %>
             </td>
@@ -39,7 +41,7 @@
             <% end %>
             </td>
         </tr>
-        <%end%>
+
         <%end%>
     </table>
     </div>

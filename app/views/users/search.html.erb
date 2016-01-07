@@ -20,7 +20,7 @@
   <h3>Potential Jammates</h3>
   <div id="myTable">
   <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table">
     <tr>
       <th></th>
       <th><%= link_to "Talent", users_sort_path(sort_by: "talent") %></th>
@@ -36,7 +36,13 @@
         <td><%= user.talent %></td>
         <td><%= user.influences %></td>
         <td><%= user.location %></td>
+ <!-- HOW to remove after adding once!??! -->
         <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+
+        <% if @users == current_user %>
+        <br><%= link_to "View Profile", user_path(user) %>
+        </td>
+        <%end%>
       </tr>
     <% end %>
   </table>

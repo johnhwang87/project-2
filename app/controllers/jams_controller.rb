@@ -51,7 +51,7 @@ class JamsController < ApplicationController
   def show
     @jam = Jam.find(params[:id])
     @image = @jam.user
-    @comments = @jam.comments
+    @comments = @jam.comments.all.sort
   end
 
   def edit

@@ -3,8 +3,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h3>Welcome <%= @user.name %>!</h3> <hr/>
+    <div class="col-lg-4">
+      <hr/>
 
 <ul class="nav nav-tabs">
     <li><a href="#tab1" data-toggle="tab">Profile</a></li>
@@ -25,8 +25,9 @@
             <p><%= f.label :location %><br><%= @user.location %></p>
             <p><%= f.label :email %><br><%= @user.email %></p>
 
-            <button type="button" class="btn btn-info btn-xs"><%= link_to "Edit Profile", edit_user_path %></button>
-
+            <% if @user == current_user %>
+            <%= link_to "Edit Profile", edit_user_path %>
+            <% end %>
             <% end %>
         </div>
 
@@ -60,11 +61,11 @@
             </div>
           </div>
 
-
+        <% if @user == current_user %>
          <%= link_to new_jam_path, class: "createSession" do %>
          <i class="glyphicon glyphicon-music"> Create New Session</i>
          <% end %>
-
+         <%end%>
          <br>
 
          <%= link_to search1_path, class: "createSessions" do %>
@@ -80,7 +81,9 @@
           <li>
             <%= link_to image_tag(friendship.friend.image), user_path(friendship.friend.id), class: "pic" %><br>
             <%= friendship.friend.name %><br>
+            <% if @user == current_user %>
             <%= link_to "Remove", friendship, :method => :delete %>
+            <%end%>
             </li>
             <%end%>
             </ul>
