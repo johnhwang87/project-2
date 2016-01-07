@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   get 'users/:id/edit' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'
-  get 'jams/new' => 'jams#new', as: :new_jam
+  delete 'comments/:id' => 'comments#destroy', as: :destroy_comment
   post 'jams/:id/comments/new' => 'comments#create', as: :create_comment
+  get 'jams/new' => 'jams#new', as: :new_jam
   get 'jams/:id/comments/new' => 'comments#new', as: :new_comment
   get 'jams/:id' => 'jams#show', as: :jam
   get 'jams/:id/edit' => 'jams#edit', as: :edit_jam
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   post 'jams/new' => 'jams#create', as: :create_jam
 
 
-  delete 'comments/:id' => 'comments#destroy'
 
 
   get 'search1' => 'jams#search', as: 'search1'

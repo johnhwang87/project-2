@@ -37,7 +37,7 @@ class JamsController < ApplicationController
         query = params[:query]
         jam_list = Jam.all
         @jams = []
-        jam_list.each do |user|
+        jam_list.each do |jam|
           if jam[search_by].downcase.include? params[:query].downcase
                 @jams << jam
                 end
