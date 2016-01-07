@@ -22,7 +22,7 @@ a {
 .error {
     background-color: rosybrown;
 }
-#login {
+.login {
   text-align: center;
 }
 
@@ -41,6 +41,7 @@ li {
 .pic img {
   height: 80px;
   width: 80px;
+  border-radius: 100px;
 }
 th, td {
   border-bottom: 1px solid #ddd;
@@ -69,5 +70,13 @@ body {
 #comments {
   max-width: 650px;
 
+}
+.comments {
+  // text-align: center;
+
+
+}
+th {
+  text-align: center;
 }
 

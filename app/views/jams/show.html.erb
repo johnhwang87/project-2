@@ -25,20 +25,21 @@
 <h3>Comments</h3>
 <div id="comments">
     <div class="table-responsive">
-    <table class="table table-hover">
-        <tr>
-            <th>Click Me</th>
-            <th>comments</th>
-        </tr>
+    <table class="table comments">
+
         <% @comments.each do |comment| %>
+         <% @comments.sort_by{|e| -e[:time_ago]} %>
         <tr>
             <td> <%= link_to image_tag(comment.user.image), user_path(comment.user), class: "pic" %>
             </td>
             <td><%= comment.content %></td>
+            <td>
             <% if comment.user == current_user %>
-            <td><%= link_to "Delete", destroy_comment_path(comment), method: :delete %></td>
+            <%= link_to "Delete", destroy_comment_path(comment), method: :delete %>
             <% end %>
+            </td>
         </tr>
+        <%end%>
         <%end%>
     </table>
     </div>

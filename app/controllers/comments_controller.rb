@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      flash[:success] = "GOOD JOB"
+      # flash[:success] = "GOOD JOB"
       redirect_to jam_path
     else
       redirect_to jam_path

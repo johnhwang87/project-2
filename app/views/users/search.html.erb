@@ -26,7 +26,7 @@
       <th><%= link_to "Talent", users_sort_path(sort_by: "talent") %></th>
       <th><%= link_to "Influences", users_sort_path(sort_by: "influences") %></th>
       <th><%= link_to "Location", users_sort_path(sort_by: "location") %></th>
-
+      <th></th>
     </tr>
     <% @users.each do |user| %>
       <tr>
@@ -36,6 +36,7 @@
         <td><%= user.talent %></td>
         <td><%= user.influences %></td>
         <td><%= user.location %></td>
+        <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
       </tr>
     <% end %>
   </table>

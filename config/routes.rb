@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :friendships, only: [:create, :destroy]
+  get 'friendships/create'
+
+  get 'friendships/destroy'
+
   root 'users#index', as: :users
 
-  get 'users/new' => 'users#new', as: :new_user
+  post 'users/new' => 'users#new', as: :new_user
   get 'search/sort' => 'users#sort', as: :users_sort
   post '/' => 'users#create'
   get 'users/:id' => 'users#show', as: :user

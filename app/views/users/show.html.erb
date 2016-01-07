@@ -9,8 +9,7 @@
 <ul class="nav nav-tabs">
     <li><a href="#tab1" data-toggle="tab">Profile</a></li>
     <li><a href="#tab2" data-toggle="tab">Sessions</a></li>
-    <li><a href="#tab3" data-toggle="tab">Search Sessions</a></li>
-    <li><a href="#tab4" data-toggle="tab">Search Members</a></li>
+    <li><a href="#tab3" data-toggle="tab">Friends</a></li>
 </ul>
 
     <div class="tab-content">
@@ -66,14 +65,36 @@
          <i class="glyphicon glyphicon-music"> Create New Session</i>
          <% end %>
 
+         <br>
+
+         <%= link_to search1_path, class: "createSessions" do %>
+         <i class="glyphicon glyphicon-search"> Search Sessions</i>
+         <% end %>
         </div>
 
         <div class="tab-pane" id="tab3">
-        <h3><%= link_to 'Search for Sessions', search1_path %></h3>
-        </div>
 
-        <div class="tab-pane" id="tab4">
-          <h3><%= link_to 'Search for Jammates', search_path %></h3>
+        <h5>Jammates</h5>
+        <ul>
+          <% for friendship in @user.friendships %>
+          <li>
+            <%= link_to image_tag(friendship.friend.image), user_path(friendship.friend.id), class: "pic" %><br>
+            <%= friendship.friend.name %><br>
+            <%= link_to "Remove", friendship, :method => :delete %>
+            </li>
+            <%end%>
+            </ul>
+         <h5>Friended by Jammates</h5>
+         <ul>
+          <% for user in @user.inverse_friends %>
+            <li><%= user.name %></li>
+            <%end%>
+            </ul>
+            <br>
+
+         <%= link_to new_jam_path, class: "createSession" do %>
+         <i class="glyphicon glyphicon-search"> Search Jammates</i>
+         <% end %>
         </div>
 
     </div>
