@@ -1,0 +1,19 @@
+<%= form_for @comment, url: create_comment_path do |f| %>
+    <form>
+
+  <fieldset class="form-group">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </fieldset>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.hidden_field :jam_id, :value => @id %>
+
+    <%= f.submit "Comment", "class" => "btn btn-info btn-xs" %>
+
+    <% end %>
+</form>
+
+<br>
+<br>

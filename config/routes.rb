@@ -8,17 +8,21 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   get 'users/:id/edit' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'
-
-  get 'search1/sort' => 'jams#sort', as: :jams_sort
-
-  get 'jams/all' => 'jams#index', as: :jams
   get 'jams/new' => 'jams#new', as: :new_jam
-  post 'jams/new' => 'jams#create', as: :create_jam
-
+  post 'jams/:id/comments/new' => 'comments#create', as: :create_comment
+  get 'jams/:id/comments/new' => 'comments#new', as: :new_comment
   get 'jams/:id' => 'jams#show', as: :jam
   get 'jams/:id/edit' => 'jams#edit', as: :edit_jam
   patch 'jams/:id' => 'jams#update'
   delete 'jams/:id' => 'jams#destroy'
+
+  get 'search1/sort' => 'jams#sort', as: :jams_sort
+
+  get 'jams/all' => 'jams#index', as: :jams
+  post 'jams/new' => 'jams#create', as: :create_jam
+
+
+  delete 'comments/:id' => 'comments#destroy'
 
 
   get 'search1' => 'jams#search', as: 'search1'
@@ -32,6 +36,7 @@ Rails.application.routes.draw do
   post 'sessions/new' => 'sessions#create', as: :create_session
 
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+
 
   namespace :api do
     resources :jams, only: [:index, :show]

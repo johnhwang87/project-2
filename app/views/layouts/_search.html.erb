@@ -1,0 +1,45 @@
+<h1>Search</h1>
+
+
+
+<br>
+
+
+<div class="container">
+
+
+<%= form_tag('search', method: 'get') do %>
+  Search Jammates by
+  <%= select_tag "search", options_for_select(["talent", "influences", "location"]) %>
+  <br><br> <%=text_field_tag :query %>
+  <%= submit_tag "Search", "class" => "btn btn-success btn-xs"%>
+<% end %>
+
+
+
+  <h3>Potential Jammates</h3>
+  <div id="myTable">
+  <div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th></th>
+      <th><%= link_to "Talent", users_sort_path(sort_by: "talent") %></th>
+      <th><%= link_to "Influences", users_sort_path(sort_by: "influences") %></th>
+      <th><%= link_to "Location", users_sort_path(sort_by: "location") %></th>
+
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to image_tag(user.image), user_path(user), class: "pic" %>
+        </td>
+        <td><%= user.talent %></td>
+        <td><%= user.influences %></td>
+        <td><%= user.location %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+</div>
+

@@ -18,5 +18,37 @@
     <button type="button" class="btn btn-danger btn-xs"><%= link_to "Erase Session", jam_path, method: :delete %></button>
 
     <% end %>
- </div>
+
+
+
+
+<h3>Comments</h3>
+<div id="comments">
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>comments</th>
+        </tr>
+        <% @comments.each do |comment| %>
+        <tr>
+            <td><img style="height: 70px;" src="<%= comment.user.image %>">
+            </td>
+            <td><%= comment.content %></td>
+        </tr>
+        <%end%>
+    </table>
+    </div>
+    </div>
+
+
+<br>
+
+
+<%= link_to new_comment_path class: "createSession" do %>
+<i class="glyphicon glyphicon-pencil">Add Comment</i>
+<%end%>
+
 </div>
+<br>
+

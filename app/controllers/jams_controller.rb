@@ -51,6 +51,7 @@ class JamsController < ApplicationController
   def show
     @jam = Jam.find(params[:id])
     @image = @jam.user
+    @comments = @jam.comments
   end
 
   def edit
@@ -77,7 +78,6 @@ class JamsController < ApplicationController
     @jam.destroy
     redirect_to user_path(current_user.id)
   end
-
 
 
 
