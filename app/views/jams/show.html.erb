@@ -7,14 +7,14 @@
         <div class="col-md-4">
             <%= form_for @jam do |f| %>
             <img style="height: 250px;" src="<%= @jam.user.image %>">
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button><br><br>
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button><br><br>
         </div>
         <div class="col-md-8">
-            <p><%= f.label :seeking %><br><%= @jam.seeking %></p>
-            <p><%= f.label :description %><br><%= @jam.description %></p>
-            <p><%= f.label :location %><br><%= @jam.location %></p>
-            <p><%= f.label :date %><br><%= @jam.date %></p>
-            <p><%= f.label :time %><br><%= @jam.time %></p>
+            <p><%= f.label :seeking, class: "titles" %><br><%= @jam.seeking %></p>
+            <p><%= f.label :description, class: "titles"  %><br><%= @jam.description %></p>
+            <p><%= f.label :location, class: "titles"  %><br><%= @jam.location %></p>
+            <p><%= f.label :date, class: "titles"  %><br><%= @jam.date %></p>
+            <p><%= f.label :time, class: "titles"  %><br><%= @jam.time %></p>
         </div>
     </div>
 
