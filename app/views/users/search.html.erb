@@ -37,12 +37,11 @@
         <td><%= user.talent %></td>
         <td><%= user.influences %></td>
         <td><%= user.location %></td>
- <!-- HOW to remove after adding once!??! -->
-        <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
 
+ <!-- HOW to remove after adding once!??! -->
+        <td><%= link_to "+Friend", friendships_path(:friend_id => user), :method => :post %></td>
         <% if @users == current_user %>
-        <br><%= link_to "View Profile", user_path(user) %>
-        </td>
+        <%= link_to "View Profile", user_path(user) %>
         <%end%>
       </tr>
     <% end %>

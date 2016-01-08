@@ -1,9 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter);
 /*
  *= require bootstrap-table
  */
-
+body {
+  font-family: Architects Daughter;
+}
 .index {
   font-family: Courier;
   text-align: center;
@@ -52,7 +55,7 @@ th, td {
 }
 
 .container {
-  width: 850px;
+  max-width: 850px;
   margin: auto;
   // background-color: #efefef;
   color: black;
@@ -73,9 +76,6 @@ th, td {
 
 }
 
-th {
-  text-align: center;
-}
 
 h4 {
   color: white;

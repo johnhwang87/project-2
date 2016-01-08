@@ -19,7 +19,7 @@
           <div class="col-md-4">
           <br>
             <%= form_for @user do |f| %>
-            <img style="height: 200px;" src="<%= @user.image %>"><br><br>
+            <img style="height: 200px; max-width: 250px;" src="<%= @user.image %>"><br><br>
             <% if @user == current_user %>
             <%= link_to "Edit Profile", edit_user_path %>
             <% end %>
@@ -53,7 +53,7 @@
               <div class="table-responsive">
               <table class="table table">
                 <tr>
-                  <th><%= link_to " ", users_sort_path(sort_by: "name") %></th>
+                  <th><%= link_to "", users_sort_path(sort_by: "name") %></th>
                   <th><%= link_to "Seeking", jams_sort_path(sort_by: "seeking") %></th>
                   <th><%= link_to "Location", jams_sort_path(sort_by: "location") %></th>
                   <th><%= link_to "Date", jams_sort_path(sort_by: "date") %></th>
