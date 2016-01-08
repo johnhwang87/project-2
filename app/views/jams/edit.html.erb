@@ -1,35 +1,37 @@
+<%= render "layouts/header" %>
 <div class="container">
-<h3>Edit Jam Session</h3>
+<h3 style="color: black;">Edit Jam Session</h3>
+<br>
   <%= form_for @jam do |f| %>
     <form>
 
 
            <fieldset class="form-group">
-              <%= f.label :seeking  %> <br>
+              <%= f.label :seeking, class: "titles"  %> <br>
               <%= f.text_field :seeking, "placeholder" => "i.e. Drums, Bass Guitar, Vocalist, etc.", :size => 60  %>
            </fieldset>
 
 
            <fieldset class="form-group">
-              <%= f.label :description  %> <br>
+              <%= f.label :description, class: "titles"  %> <br>
               <%= f.text_field :description, "placeholder" => "Rundown of your JamSession", :size => "60x60"  %>
            </fieldset>
 
 
            <fieldset class="form-group">
-              <%= f.label :location  %> <br>
+              <%= f.label :location, class: "titles"  %> <br>
               <%= f.text_field :location, "placeholder" => "City", :size => 60  %>
            </fieldset>
 
 
            <fieldset class="form-group">
-              <%= f.label :date %> <br>
+              <%= f.label :date, class: "titles" %> <br>
               <%= f.text_field :date, "placeholder" => "Date of Session", :size => 60  %>
            </fieldset>
 
 
            <fieldset class="form-group">
-              <%= f.label :time %> <br>
+              <%= f.label :time, class: "titles" %> <br>
               <%= f.text_field :time, "placeholder" => "Time of Session", :size => 60  %>
            </fieldset>
 
@@ -37,10 +39,9 @@
     <%= f.submit "Update Session", "class" => "btn btn-success btn-xs" %>
 
 
-    <button type="button" class="btn btn-danger btn-xs"><%= link_to "Back to Profile", user_path(@jam.user) %></button>
-
     <% end %>
 
     </form>
 
     </div>
+<%= render "layouts/footer" %>

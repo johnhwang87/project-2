@@ -52,9 +52,9 @@ th, td {
 }
 
 .container {
-  max-width: 850px;
+  width: 850px;
   margin: auto;
-  background-color: #efefef;
+  // background-color: #efefef;
   color: black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -63,10 +63,7 @@ th, td {
   padding: 20px;
 
 }
-body {
-  border: 1px solid black;
-  // background-image: url(http://previews.123rf.com/images/scottff72/scottff721305/scottff72130500015/19756456-Music-stage-or-singing-background-microphone-guitar-and-speakers-with-wood-flooring-Stock-Photo.jpg);
-}
+
 #comments {
   max-width: 650px;
 
@@ -74,9 +71,59 @@ body {
 .comments {
   // text-align: center;
 
-
 }
+
 th {
   text-align: center;
+}
+
+h4 {
+  color: white;
+}
+body {
+  padding-top: 60px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 5px double red;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+  padding-right: 40px;
+}
+
+.titles {
+  color: red;
+}
+h1, h2, h3, h5, h6 {
+  color: red;
 }
 

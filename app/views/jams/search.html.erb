@@ -1,4 +1,4 @@
-
+<%= render "layouts/header" %>
 
 <br>
 
@@ -18,7 +18,7 @@
   <h3>Potential Sessions</h3>
   <div id="myTable">
   <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table">
     <tr>
       <th></th>
       <th><%= link_to "Seeking", jams_sort_path(sort_by: "seeking") %></th>
@@ -44,4 +44,4 @@
 </div>
 </div>
 </div>
-
+<%= render "layouts/footer" %>

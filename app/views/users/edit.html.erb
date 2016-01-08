@@ -1,44 +1,46 @@
+<%= render "layouts/header" %>
+<div class="container">
 <h3>Edit Profile</h3>
 <%= form_for @user do |g|  %>
 <form>
 
   <fieldset class="form-group">
-    <%= g.label :name %> <br>
+    <%= g.label :name, class: "titles" %> <br>
     <%= g.text_field :name, "placeholder" => "Name", :size => 60 %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= g.label :age %> <br>
+    <%= g.label :age, class: "titles" %> <br>
     <%= g.text_field :age, "placeholder" => "Age", :size => 60 %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= g.label :image %> <br>
+    <%= g.label :image, class: "titles" %> <br>
     <%= g.text_field :image, "placeholder" => "Paste Image URL", :size => 60 %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= g.label :talent %> <br>
+    <%= g.label :talent, class: "titles" %> <br>
     <%= g.text_field :talent, "placeholder" => "List of Talents", :size => 60 %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= g.label :influences %> <br>
+    <%= g.label :influences, class: "titles" %> <br>
     <%= g.text_field :influences, "placeholder" => "Name of Bands", :size => 60 %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= g.label :experience %> <br>
+    <%= g.label :experience, class: "titles" %> <br>
     <%= g.text_field :experience, "placeholder" => "Skill Level, i.e. Beginnier, Intermediate, Advanced", :size => 60 %>
   </fieldset>
 
    <fieldset class="form-group">
-    <%= g.label :location %> <br>
+    <%= g.label :location, class: "titles" %> <br>
     <%= g.text_field :location, "placeholder" => "City", :size => 60 %>
   </fieldset>
 
    <fieldset class="form-group">
-    <%= g.label :email %> <br>
+    <%= g.label :email, class: "titles" %> <br>
     <%= g.text_field :email, "placeholder" => "Email", :size => 60 %>
   </fieldset>
 
@@ -49,3 +51,5 @@
 
   <% end %>
 </form>
+</div>
+<%= render "layouts/footer" %>

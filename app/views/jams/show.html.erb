@@ -1,21 +1,28 @@
+<%= render "layouts/header" %>
 <div class="container">
-<h1>Session</h1>
+<h3>Session</h3>
+<br>
 
+    <div class="row">
+        <div class="col-md-4">
             <%= form_for @jam do |f| %>
-            <img style="height: 200px;" src="<%= @jam.user.image %>">
+            <img style="height: 250px;" src="<%= @jam.user.image %>">
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button><br><br>
+        </div>
+        <div class="col-md-8">
             <p><%= f.label :seeking %><br><%= @jam.seeking %></p>
             <p><%= f.label :description %><br><%= @jam.description %></p>
             <p><%= f.label :location %><br><%= @jam.location %></p>
             <p><%= f.label :date %><br><%= @jam.date %></p>
             <p><%= f.label :time %><br><%= @jam.time %></p>
+        </div>
+    </div>
 
 
-
-    <button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button>
-
+    <br>
     <% if @jam.user == current_user %>
-
-    <%= link_to "Edit Session", edit_jam_path %>
+    <br>
+    <%= link_to "Edit Session", edit_jam_path %><br>
 
     <%= link_to "Erase Session", jam_path, method: :delete %>
 
@@ -23,8 +30,8 @@
     <% end %>
 
 
-
-<h3>Comments</h3>
+<br><br>
+<h3 id="commenting">Comments</h3>
 <div id="comments">
     <div class="table-responsive">
     <table class="table comments">
@@ -57,4 +64,4 @@
 
 </div>
 <br>
-
+<%= render "layouts/footer" %>

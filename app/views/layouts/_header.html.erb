@@ -1,10 +1,14 @@
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container1">
+         <!--  <img src="http://inspirationfeed.com/wp-content/uploads/2011/07/62ee87d32fd10dcd005560040ca6086f1.png" style="height: 150px;"> -->
+         <h4 id="logo">JamSessions</h4>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", current_user %></li>
+            <li><%= link_to "Log out", destroy_session_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<%= tabs_tag do |tab| %>
-<div id="header">
-  <img src="http://inspirationfeed.com/wp-content/uploads/2011/07/62ee87d32fd10dcd005560040ca6086f1.png">
-  <%= tab.profile             'Profile', current_user %>
-  <%= tab.jammate   'Search Jammates', search_path %>
-  <%= tab.logout    'Logout', destroy_session_path %>
-<% end %>
-
-
+<br>
