@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-md-4">
             <%= form_for @jam do |f| %>
-            <img style="height: 250px;" src="<%= @jam.user.image %>">
-            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success btn-xs"><%= link_to "View Profile", user_path(@jam.user) %></button><br><br>
+            <img style="height: 250px; max-width: 250px;" src="<%= @jam.user.image %>">
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-success btn-xs view"><%= link_to "View Profile", user_path(@jam.user) %></button><br><br>
         </div>
         <div class="col-md-8">
             <p><%= f.label :seeking, class: "titles" %><br><%= @jam.seeking %></p>
@@ -44,8 +44,10 @@
             <td><%= comment.content %></td>
             <td>
             <% if comment.user == current_user %>
-            <%= link_to "Delete", destroy_comment_path(comment), method: :delete %>
+            <%= link_to destroy_comment_path(comment), method: :delete do %>
+            <i class="glyphicon glyphicon-remove">Delete</i>
             <% end %>
+            <%end%>
             </td>
         </tr>
 

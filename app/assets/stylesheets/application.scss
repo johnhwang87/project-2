@@ -21,13 +21,9 @@ a {
 }
 .success {
     color: darkseagreen;
-
 }
 
 .error {
-
-
-
     color: darkred;
 }
 .login {
@@ -139,4 +135,11 @@ h1, h2, h3, h5, h6 {
 p, td, th, .nav {
   font-size: 20px;
 }
-
+.view a {
+  color: white !important;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: red;
+}

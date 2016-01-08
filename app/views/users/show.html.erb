@@ -21,7 +21,9 @@
             <%= form_for @user do |f| %>
             <img style="height: 200px; max-width: 250px;" src="<%= @user.image %>"><br><br>
             <% if @user == current_user %>
-            <%= link_to "Edit Profile", edit_user_path %>
+            <%= link_to edit_user_path, class: "createSession" do %>
+            <i class="glyphicon glyphicon-pencil"> Edit Profile</i>
+            <%end%>
             <% end %>
           </div>
 
@@ -91,19 +93,21 @@
         <h3>Jammates</h3>
         <ul>
           <% for friendship in @user.friendships %>
-          <li>
+          <li><div style="width: 105px;">
                 <%= link_to image_tag(friendship.friend.image), user_path(friendship.friend.id), class: "pic" %><br>
                 <%= friendship.friend.name %><br>
                 <% if @user == current_user %>
-                <%= link_to "Remove", friendship, :method => :delete %>
+                <%= link_to friendship, :method => :delete  do %>
+                <i class="glyphicon glyphicon-remove">remove</i>
                 <%end%>
+                <%end%></div>
            </li>
            <%end%>
          </ul>
          <h3>Groupies</h3>
          <ul>
           <% for user in @user.inverse_friends %>
-            <li><%= link_to image_tag(user.image), user_path(user), class: "pic" %><br><%= user.name %></li>
+            <li><div style="width: 105px;"><%= link_to image_tag(user.image), user_path(user), class: "pic" %><br><%= user.name %></div></li>
             <%end%>
             </ul>
             <br>
