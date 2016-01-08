@@ -29,7 +29,6 @@ gem 'jquery-datatables-rails', '~> 3.3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
-
 gem "tabs_on_rails"
 gem 'rails_12factor', group: :production
 # Use Unicorn as the app server

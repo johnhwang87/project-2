@@ -2,11 +2,25 @@
 
 Welcome to JamSession, my first CRUD app to find people to jam with, using the Ruby on Rails framework!
 
-Languages used: Ruby, Rails, Javascript, Bootstrap, jQuery
+Languages used: Ruby, Rails, Javascript, Bootstrap, jQuery.
 
-Features: Authenticated Users, Create posts, delete posts, edit posts, comment on posts, follow friends, get followed, search for posts and friends.
+Below are the list of gems used:
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem "tabs_on_rails"
+
+
+
+Features: Authenticated Users, Create, delete, post, and edit Jamsessions, comment on Sessions, follow friends, get followed, and search for sessions and other members.
 
 
 
 JamSession is very easy to use. Just register and Log in to search for any sessions going on that other users post. Comment and set up a JamSession!
+
+Heroku link:
+http://jammates.herokuapp.com/
+
+Trello link:
+https://trello.com/b/A5cpQLqA/jam-sessions
 
