@@ -39,6 +39,7 @@
         <td><%= user.location %></td>
 
  <!-- HOW to remove after adding once!??! -->
+
         <td><%= link_to "+Friend", friendships_path(:friend_id => user), :method => :post %></td>
         <% if @users == current_user %>
         <%= link_to "View Profile", user_path(user) %>
